@@ -7,7 +7,8 @@ router.get("/", async (req, res) => {
         const blog = results.map(result => result.get({ plain: true }))
         res.render('home', {
           username: '',
-          blogs: data})
+          blogs: blog
+        })
       })
   });
   
