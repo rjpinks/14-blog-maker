@@ -1,0 +1,29 @@
+{{!-- This is lacking a delete button --}}
+
+<div>
+    <h2>Welcome, {{name}}!</h2>
+    <h3>Got something to say?</h3>
+
+    <form class="blog-form">
+        <label for="blog-title">Title:</label>
+        <input type="text" />
+        <br>
+        <label for="blog-content">Content:</label>
+        <input type="text" />
+        <br>
+        <button type="submit">Click</button>
+    </form>
+</div>
+
+<div>
+    {{#if newblog.length}}
+    <h2>Blogs:</h2>
+    {{#each blogs as |blog|}}
+    <div>
+        <a href="/blog/{{blog.id}}">{{blog.name}}</a>
+    </div>
+    {{/each}}
+    {{/if}}
+</div>
+
+<script src="../public/js/dashboard.js"></script>

@@ -1,0 +1,12 @@
+<h2> Welcome, {{name}}!</h2>
+
+<div class="blog-list">
+    {{#each blogs as |blog|}}
+        <div class="blog">
+      
+            <h3>{{blog.title}}</h3>
+            <p>{{blog.content}}</p>
+        </div>
+        {{!-- <p>Created by {{blog.user.name}} on {{format_date blog.date_created}}</p> --}}
+    {{/each}}
+</div>

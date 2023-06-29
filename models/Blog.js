@@ -20,12 +20,12 @@ Blog.init(
     },
     creater_name: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: true
         //FORIEGN KEY: from user
     },
     date_created: {
         type: DataTypes.DATE,
-        allowNull: false
+        allowNull: true
     }
     //JOIN this table with comment in a query when displaying
   },
