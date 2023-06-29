@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,37 +9,25 @@
     <link rel="stylesheet" href="../../public/css/jass.css">
     <link rel="stylesheet" href="../../public/css/style.css">
 </head>
+
 <body>
-    <header>
-        <h1> Welcome to our Tech Blog! </h1>
-        <nav>
-            <!-- this is the nav bar -->
-            <button>Dashboard</button>
-            <button>Login</button>
-            <button>Sign In</button>
-        </nav>
-    </header>
+    <nav>
+        <a class="nav-button" href="/home">Home</a>
+        <a class="nav-button" href="/dash">Dashboard</a>
+        {{#if logged_in}}
+        <a class="nav-button" id="logout">Logout</a>
+        {{else}}
+        <a class="nav-button" href="/login">Login</a>
+        {{/if}}
+    </nav>
 
     <main>
-    <section>
-        <h2>Take a peek at some blogs!</h2>
-        <!-- This is where the blog posts will go -->
-        <div class="home-blog-card">
-            <p>Title of blog</p><br>
-            <p>Blog's Creater</p>
-            <p>Date Created</p>
-        </div>
-        <div class="home-blog-card">
-            <p>Title of blog</p><br>
-            <p>Blog's Creater</p>
-            <p>Date Created</p>
-        </div>
-    </section>
+        {{{body}}}
     </main>
 
-    <footer>
-        
-    </footer>
-
+    {{#if logged_in}} 
+    <script src="/js/logout.js"></script>
+    {{/if}}
 </body>
+
 </html>
