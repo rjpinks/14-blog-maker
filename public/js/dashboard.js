@@ -1,3 +1,5 @@
+const blogForm = document.querySelector('.blog-form');
+
 const newFormHandler = async (event) => {
     event.preventDefault();
   
@@ -27,5 +29,7 @@ const newFormHandler = async (event) => {
       }
     }
   };
+
+  blogForm.addEventListener('submit', newFormHandler(event));
 
   // This does not have a delete button yet
