@@ -22,10 +22,6 @@ User.init(
             unique: true,
             //belongsToMany: comment_creater and creater on blog
         },
-        email: {
-            type: DataTypes.STRING,
-            allowNull: true
-        },
         password: {
             type: DataTypes.STRING,
             allowNull: false
