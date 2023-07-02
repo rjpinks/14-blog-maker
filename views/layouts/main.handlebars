@@ -13,10 +13,11 @@
 <body>
     <nav>
         <a class="nav-button" href="/">Home</a>
-        <a class="nav-button" href="/dashboard">Dashboard</a>
         {{#if logged_in}}
+        <a class="nav-button" href="/dashboard">Dashboard</a>
         <a class="nav-button" id="logout">Logout</a>
         {{else}}
+        <a class="nav-button" href="/signup">Dashboard</a>
         <a class="nav-button" href="/login">Login</a>
         {{/if}}
     </nav>
