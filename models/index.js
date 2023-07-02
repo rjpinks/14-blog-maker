@@ -4,7 +4,7 @@ const User = require('./User');
 
 //Therer is something not right with these bc it's making a unnecessairy column
 Blog.belongsTo(User, {
-    foreignKey: 'creator_name',
+    foreignKey: 'creater_name',
 });
 
 Comment.belongsTo(Blog, {
