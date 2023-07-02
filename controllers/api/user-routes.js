@@ -36,7 +36,6 @@ router.get('/:id', async (req, res) => {
     try {
       const newUser = await Comment.create({
         username: req.body.username,
-        email: req.body.email,
         password: req.body.password
       });
       res.status(200).json(newUser);
