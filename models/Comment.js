@@ -1,6 +1,6 @@
 const { Model, DataTypes, Sequelize } = require('sequelize');
 const sequelize = require('../config/connection.js');
-class Comment extends Model {};
+class Comment extends Model { };
 
 Comment.init(
     {
@@ -9,28 +9,46 @@ Comment.init(
             allowNull: false,
             primaryKey: true,
             autoIncrement: true,
-          },
+        },
         comment: {
             type: DataTypes.STRING,
             allowNull: false
         },
         comment_creater: {
-            type: DataTypes.STRING,
-            allowNull: false
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'user',
+                key: 'id'
+            }
             //FORIEGN KEY: username from user table
         },
-        date_created: {
-            type: DataTypes.DATE,
-            allowNull: false
+        post_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'blog',
+                key: 'id'
+            }
         },
     },
     {
+        hooks: {
+            beforeCreate: (record, options) => {
+                record.dataValues.createdAt = new Date().toISOString().replace(/T/, ' ').replace(/\..+/g, '');
+                console.log(`Before Create Hook DataVal Created at:${record.dataValues.createdAt}`)
+
+            },
+            afterCreate: (record, options) => {
+                record.dataValues.createdAt = new Date().toISOString().replace(/T/, ' ').replace(/\..+/g, '');
+                console.log(`After Create DataVal Created at:${record.dataValues.createdAt}`)
+            },
+        },
         sequelize,
-        timestamps: false,
+        timestamps: true,
+        updatedAt: false,
         freezeTableName: true,
         underscored: true,
         modelName: 'comment',
-    }     
+    }
 )
 
 module.exports = Comment;

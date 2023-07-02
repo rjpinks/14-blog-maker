@@ -19,14 +19,17 @@ Blog.init(
         allowNull: false
     },
     creater_name: {
-        type: DataTypes.STRING,
-        allowNull: true
+        type: DataTypes.INTEGER,
+        references: {
+          model: 'user',
+          key: 'id'
+        }
         //FORIEGN KEY: from user
     },
-    date_created: {
-        type: DataTypes.DATE,
-        allowNull: true
-    }
+    // date_created: {
+    //     type: DataTypes.DATE,
+    //     allowNull: true
+    // }
     //JOIN this table with comment in a query when displaying
   },
   {

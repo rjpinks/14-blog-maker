@@ -19,12 +19,12 @@ User.init(
         username: {
             type: DataTypes.STRING,
             allowNull: false,
-            primaryKey: true,
+            unique: true,
             //belongsToMany: comment_creater and creater on blog
         },
         email: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: true
         },
         password: {
             type: DataTypes.STRING,
@@ -39,7 +39,7 @@ User.init(
             return newUserData;
           },
           beforeUpdate: async (updatedUserData) => {
-            updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
+            if (updatedUserData.password) { updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10) }
             return updatedUserData;
           },
         },
