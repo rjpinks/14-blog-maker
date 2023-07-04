@@ -65,16 +65,13 @@ router.post('/login', async (req, res) => {
       return;
     }
 
-    req.session.userData = {
-      id: userData.id,
-      username: userData.username,
-    };
-
     req.session.save(() => {
+      req.session.user_id = userData.id;
       req.session.logged_in = true;
-      // res.header('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0');
-      res.json({ user: userData.username, message: 'Succesful login!' });
+
+      res.json({ user: userData, message: 'You are now logged in!' });
     });
+
   } catch (err) {
     res.status(500).json(err);
   }
