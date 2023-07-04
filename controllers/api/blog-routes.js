@@ -37,7 +37,6 @@ router.get('/:id', async (req, res) => {
         post_title: req.body.post_title,
         content: req.body.content,
         creater_name: req.body.creater_name,
-        date_created: req.body.date_created,
       });
       res.status(200).json(newBlog);
     } catch (err) {
