@@ -34,9 +34,10 @@ router.get('/:id', async (req, res) => {
   //I might need to adjust the .create()'s argument in the future, but it's ok for now
   router.post('/', async (req, res) => {
     try {
-      const newUser = await Comment.create({
+      const newUser = await User.create({
         username: req.body.username,
-        password: req.body.password
+        password: req.body.password,
+        email: req.body.email
       });
       res.status(200).json(newUser);
     } catch (err) {
