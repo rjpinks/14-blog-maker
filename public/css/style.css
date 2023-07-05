@@ -19,6 +19,8 @@ nav {
 main {
     background-color: plum;
     color: powderblue;
+    border-radius: 25px;
+    padding: 10px;
 }
 
 .nav-button {
@@ -35,8 +37,4 @@ p {
 
 .blog {
     border: 3px;
-}
-
-div {
-    border-radius: 25px;
 }
