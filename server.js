@@ -17,7 +17,7 @@ const hbs = exphbs.create({  helpers });
 
 app.use(
   session({
-      secret: process.env.SESSION_SECRET,
+      secret: 'Super secret secret',
       resave: false,
       saveUninitialized: true,
       cookie: {
