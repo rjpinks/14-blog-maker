@@ -1,14 +1,27 @@
 body {
     color: tomato;
     background-color: bisque;
+    border-radius: 25px;
 }
 
 nav {
     background-color: darkkhaki;
     color: tomato;
+    border-right: 10%;
+    border-left: 10%;
+    border-bottom: 5%;
+    border-top: 5%
 }
 
 main {
     background-color: plum;
     color: powderblue;
+}
+
+.nav-button {
+    font-size: 20px;
+}
+
+p {
+    font-size: 20px;
 }
