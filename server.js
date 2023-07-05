@@ -12,7 +12,7 @@ const sequelize = require("./config/connection");
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 //calls handlebars and sequelize connects to the db
-const hbs = exphbs.create({  helpers });
+const hbs = exphbs.create({});
 
 app.use(
   session({
@@ -22,7 +22,7 @@ app.use(
       cookie: {
           path: '/',
           httpOnly: false,
-          maxAge: 7200000 }, // 2 hour session 
+          maxAge: 7200000 },
       store: new SequelizeStore({
           db: sequelize,
         }),
