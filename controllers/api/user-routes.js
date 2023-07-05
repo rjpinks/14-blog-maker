@@ -87,4 +87,26 @@ router.post('/logout', (req, res) => {
   }
 });
 
+router.post('/signup', async (req, res) => {
+  try {
+      const dbUserData = await User.create({
+          username: req.body.username,
+          password: req.body.password,
+      });
+
+      req.session.user = {
+          id: dbUserData.id,
+          username: dbUserData.username,
+      };
+      
+      req.session.save(() => {
+          req.session.logged_in = true;
+
+          res.status(200).json(dbUserData);
+      });
+  } catch (err) {
+      res.status(500).json(err);
+  }
+});
+
 module.exports = router;
