@@ -15,22 +15,20 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 //calls handlebars and sequelize connects to the db
 const hbs = exphbs.create({  helpers });
 
-const sess = {
-  secret: 'Super secret secret',
-  cookie: {
-    maxAge: 300000,
-    httpOnly: true,
-    secure: false,
-    sameSite: 'strict',
-  },
-  resave: false,
-  saveUninitialized: true,
-  store: new SequelizeStore({
-    db: sequelize
+app.use(
+  session({
+      secret: process.env.SESSION_SECRET,
+      resave: false,
+      saveUninitialized: true,
+      cookie: {
+          path: '/',
+          httpOnly: false,
+          maxAge: 7200000 }, // 2 hour session 
+      store: new SequelizeStore({
+          db: sequelize,
+        }),
   })
-};
-
-app.use(session(sess));
+);
 
 app.engine("handlebars", hbs.engine)
 app.set("view engine", "handlebars");
