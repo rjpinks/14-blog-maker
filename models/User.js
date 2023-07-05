@@ -20,12 +20,10 @@ User.init(
             type: DataTypes.STRING,
             allowNull: false,
             unique: true,
-            //belongsToMany: comment_creater and creater on blog
         },
         password: {
             type: DataTypes.STRING,
             allowNull: false
-            //this will need to be hashed
         },
     },
     {

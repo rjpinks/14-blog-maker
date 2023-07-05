@@ -1,3 +1,14 @@
 body {
-    color: blue;
+    color: tomato;
+    background-color: bisque;
+}
+
+nav {
+    background-color: darkkhaki;
+    color: tomato;
+}
+
+main {
+    background-color: plum;
+    color: powderblue;
 }

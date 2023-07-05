@@ -20,7 +20,6 @@ Comment.init(
                 model: 'user',
                 key: 'id'
             }
-            //FORIEGN KEY: username from user table
         },
         post_id: {
             type: DataTypes.INTEGER,

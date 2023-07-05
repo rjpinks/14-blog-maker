@@ -1,4 +1,4 @@
-const loginFormHandler = async (event) => { // handler for when a user logs in the game starts
+const loginFormHandler = async (event) => {
     event.preventDefault();
   
     const username = document.querySelector('#email-login').value.trim();
@@ -15,7 +15,7 @@ const loginFormHandler = async (event) => { // handler for when a user logs in t
         });
 
         if (response.ok) {
-            document.location.replace('/'); // change this to the correct route
+            document.location.replace('/');
         } else {
             alert('Failed to login');
         }

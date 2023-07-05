@@ -24,13 +24,7 @@ Blog.init(
           model: 'user',
           key: 'id'
         }
-        //FORIEGN KEY: from user
     },
-    // date_created: {
-    //     type: DataTypes.DATE,
-    //     allowNull: true
-    // }
-    //JOIN this table with comment in a query when displaying
   },
   {
     sequelize,
